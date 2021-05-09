@@ -1,8 +1,5 @@
 class CreateQuestionnaires < ActiveRecord::Migration[6.1]
   def change
-    create_table :questionnaires do |t|
-
-      t.timestamps
-    end
+    create_table :questionnaires, &:timestamps
   end
 end
