@@ -10,26 +10,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_09_204025) do
+ActiveRecord::Schema.define(version: 2021_05_09_192725) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "candidates", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "questionnaires", force: :cascade do |t|
+    t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "questions", force: :cascade do |t|
+    t.string "text"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "text"
   end
 
   create_table "responses", force: :cascade do |t|
+    t.boolean "value"
+    t.bigint "section_id"
+    t.bigint "candidate_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "value"
+    t.index ["candidate_id"], name: "index_responses_on_candidate_id"
+    t.index ["section_id"], name: "index_responses_on_section_id"
   end
 
+  create_table "sections", force: :cascade do |t|
+    t.bigint "question_id", null: false
+    t.bigint "questionnaire_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["question_id"], name: "index_sections_on_question_id"
+    t.index ["questionnaire_id"], name: "index_sections_on_questionnaire_id"
+  end
+
+  add_foreign_key "sections", "questionnaires"
+  add_foreign_key "sections", "questions"
 end

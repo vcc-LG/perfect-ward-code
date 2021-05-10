@@ -1,7 +1,21 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+questions = Question.create([{ text: 'Can you code in Ruby?' }, { text: 'Can you code in JavaScript?' },
+                             { text: 'Can you code in Swift (iOS)?' }, { text: 'Can you code in Java (Android)?' },
+                             { text: 'Can you code in C#?' }])
+
+questionnaire = Questionnaire.create(questions: questions, title: 'Candidate Interview')
+
+candidate = Candidate.create(name: 'Leo')
+
+questionnaire.sections.each do |s|
+  Response.create(section: s, value: [true, false].sample, candidate: candidate)
+end
+
+Questionnaire.all.each do |q|
+  Candidate.all.each do |c|
+    if q.candidate_response?(c)
+      puts "Candidate #{c.name} scored #{q.score(c)} % for #{q.title}"
+    else
+      puts "Candidate #{c.name} did not respond to #{q.title}"
+    end
+  end
+end
