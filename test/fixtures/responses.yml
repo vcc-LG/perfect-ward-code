@@ -1,11 +1,40 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+leo_response_1:
+  value: true
+  section: section_1
+  candidate: leo
 
-# This model initially had no columns defined. If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-# column: value
+leo_response_2:
+  value: false
+  section: section_2
+  candidate: leo
+
+leo_response_3:
+  value: false
+  section: section_3
+  candidate: leo
+  
+leo_response_4:
+  value: false
+  section: section_4
+  candidate: leo  
+
+
+hannah_response_1:
+  value: true
+  section: section_1
+  candidate: hannah
+
+hannah_response_2:
+  value: true
+  section: section_2
+  candidate: hannah
+
+hannah_response_3:
+  value: true
+  section: section_3
+  candidate: hannah
+  
+hannah_response_4:
+  value: true
+  section: section_4
+  candidate: hannah   

@@ -2,13 +2,15 @@ questions = Question.create([{ text: 'Can you code in Ruby?' }, { text: 'Can you
                              { text: 'Can you code in Swift (iOS)?' }, { text: 'Can you code in Java (Android)?' },
                              { text: 'Can you code in C#?' }])
 
-questionnaire = Questionnaire.create(questions: questions, title: 'Candidate Interview')
+questionnaire_1 = Questionnaire.create(questions: questions, title: 'Job Interview Questions')
 
 candidate = Candidate.create(name: 'Leo')
 
-questionnaire.sections.each do |s|
+questionnaire_1.sections.each do |s|
   Response.create(section: s, value: [true, false].sample, candidate: candidate)
 end
+
+questionnaire_2 = Questionnaire.create(questions: questions, title: 'Really Hard Job Interview Questions')
 
 Questionnaire.all.each do |q|
   Candidate.all.each do |c|

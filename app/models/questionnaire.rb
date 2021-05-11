@@ -3,7 +3,7 @@ class Questionnaire < ApplicationRecord
   has_many :questions, through: :sections
 
   def candidate_response?(candidate)
-    Response.joins(:questionnaire).where(section: { questionnaire: self }, candidate: candidate).any?
+    Response.joins(:section).where(candidate: candidate, section: { questionnaire: self }).any?
   end
 
   def score(candidate)

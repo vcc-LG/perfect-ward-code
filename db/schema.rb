@@ -46,8 +46,6 @@ ActiveRecord::Schema.define(version: 2021_05_09_192725) do
   create_table "sections", force: :cascade do |t|
     t.bigint "question_id", null: false
     t.bigint "questionnaire_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
     t.index ["question_id"], name: "index_sections_on_question_id"
     t.index ["questionnaire_id"], name: "index_sections_on_questionnaire_id"
   end
