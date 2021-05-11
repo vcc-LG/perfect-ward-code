@@ -1,0 +1,34 @@
+<div class="container">
+    <h1>Questionnaires</h1>
+    <hr/>
+    <h3>Available questionnaires:</h3>
+    <% if @questionnaires.empty? %>
+        <p> No questionnaires present in the database. </p>
+    <% else %>
+        <ul>
+            <% @questionnaires.each do |q| %>
+                <li><%= q.title %></li>
+            <% end %>
+        </ul>
+    <% end %>
+    <br>
+    <h3>Candidate responses:</h3>
+        <ul>
+            <% @questionnaires.each do |q| %>
+                <li><%= q.title %></li>
+                <ul>
+                    <% @candidates.each do |c| %>
+                        <li>
+                            <%= c.name %>: 
+                            <% if q.score(c) %>
+                                <em><%= q.score(c) %> %</em>
+                            <% else %>
+                                <em>No response</em>
+                            <% end %>
+                        </li>
+                    <% end %>
+                </ul>
+            <% end %>
+        </ul>
+</div>
+
