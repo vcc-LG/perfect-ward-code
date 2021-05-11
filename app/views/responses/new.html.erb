@@ -1,0 +1,38 @@
+<div class="container">
+    <h1><%= @questionnaire.title %></h1>
+
+    <form accept-charset="UTF-8" action="/responses" method="post">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+        <div class="card m-3">
+            <div class="card-body form-group">
+                <label for="candidateSelect">Candidate:</label>
+                <select class="form-control" name="response[candidate_id]" id="candidateSelect">
+                    <% @candidates.each do |c| %>
+                        <option value="<%= c.id %>"><%= c.name %></option>
+                    <% end %>
+                </select>
+            </div>
+        </div>
+        <% @questionnaire.sections.each do |s| %>
+            <div class="card m-3">
+                <div class="card-body form-group">
+                    <label for="<%= s.id %>"><%= s.question.text %></label>
+
+                    <div class="form-check m-1">
+                        <input class="form-check-input" type="radio" name="response[section_id[<%= s.id %>]]" id="<%= s.id %>_true" value="true" required>
+                        <label class="form-check-label" for="<%= s.id %>_true">Yes</label>
+                    </div>
+                    <div class="form-check m-1">
+                        <input class="form-check-input" type="radio" name="response[section_id[<%= s.id %>]]" id="<%= s.id %>_false" value="false" required>
+                        <label class="form-check-label" for="<%= s.id %>_false">No</label>
+                    </div>                    
+                </div>
+            </div>
+        <% end %>
+        <div class="container" style="text-align:right;">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
+

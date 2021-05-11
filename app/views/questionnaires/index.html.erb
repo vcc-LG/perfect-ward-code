@@ -7,7 +7,9 @@
     <% else %>
         <ul>
             <% @questionnaires.each do |q| %>
-                <li><%= q.title %></li>
+                <li> 
+                    <%= link_to q.title, new_response_path(questionnaire_id: q.id) %>
+                </li>
             <% end %>
         </ul>
     <% end %>
