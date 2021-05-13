@@ -1,0 +1,19 @@
+<div class="container">
+    <h1><%= @questionnaire.title %></h1>
+    <h2>Candidate name: <%= @candidate.name %></h2>
+    <hr/>
+    <% @questionnaire.sections.each do |s| %>
+
+        <div class="row">
+            <div class="col">
+                <p><%= s.question.text %></p>
+            </div>
+            <div class="col">
+                <em><p class="font-weight-bold"><%= @candidate_responses.where(section_id: s.id).first.value ? "Yes" : "No" %></p></em>
+            </div>
+        </div>
+
+    <% end %>
+    <%= link_to '↩ Questionnaires', questionnaires_path %>
+
+</div>
