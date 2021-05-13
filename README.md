@@ -24,3 +24,7 @@ You can run the test suite using:
 ```bash
 docker-compose run web rake test
 ```
+
+## TODO
+
+Outstanding tasks and future developments are in [TODO.md]](TODO.md)
