@@ -8,4 +8,16 @@ question_3:
   text: Can you code C#?
 
 question_4:
-  text: Can you code Python?  
+  text: Can you code Python?
+
+question_5:
+  text: Can you code Fortran?
+
+question_6:
+  text: Can you code COBOL?
+
+question_7:
+  text: Can you code Perl?
+
+question_8:
+  text: Can you code CoffeeScript?

@@ -12,12 +12,31 @@ leo_response_3:
   value: false
   section: section_3
   candidate: leo
-  
+
 leo_response_4:
   value: false
   section: section_4
-  candidate: leo  
+  candidate: leo
 
+leo_response_5:
+  value: true
+  section: section_5
+  candidate: leo
+
+leo_response_6:
+  value: true
+  section: section_6
+  candidate: leo
+
+leo_response_7:
+  value: true
+  section: section_7
+  candidate: leo
+
+leo_response_8:
+  value: true
+  section: section_8
+  candidate: leo
 
 hannah_response_1:
   value: true
@@ -33,8 +52,8 @@ hannah_response_3:
   value: true
   section: section_3
   candidate: hannah
-  
+
 hannah_response_4:
   value: true
   section: section_4
-  candidate: hannah   
+  candidate: hannah

@@ -10,3 +10,16 @@ section_3:
 section_4:
   questionnaire: questionnaire_1
   question: question_4
+
+section_5:
+  questionnaire: questionnaire_2
+  question: question_5
+section_6:
+  questionnaire: questionnaire_2
+  question: question_6
+section_7:
+  questionnaire: questionnaire_2
+  question: question_7
+section_8:
+  questionnaire: questionnaire_2
+  question: question_8

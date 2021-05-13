@@ -1,6 +1,6 @@
 class QuestionnairesController < ApplicationController
   def index
-    @questionnaires = Questionnaire.all
-    @candidates = Candidate.all
+    @questionnaires = Questionnaire.order(:title)
+    @candidates = Candidate.order(:name)
   end
 end

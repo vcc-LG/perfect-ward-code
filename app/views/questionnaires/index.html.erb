@@ -19,11 +19,12 @@
             <% @questionnaires.each do |q| %>
                 <li><%= q.title %></li>
                 <ul>
-                    <% @candidates.order(:name).each do |c| %>
+                    <% @candidates.each do |c| %>
                         <li>
                             <%= c.name %>: 
-                            <% if q.score(c) %>
-                                <em><%= q.score(c) %> %</em>
+                            <% score = q.score(candidate: c) %>
+                            <% if score %>
+                                <em><%= score %> %</em>
                                 <%= link_to "➡", responses_path(questionnaire_id: q.id, candidate_id: c.id) %>
                             <% else %>
                                 <em>No response</em>
@@ -33,5 +34,12 @@
                 </ul>
             <% end %>
         </ul>
+    <br>
+    <h3>Total average scores:</h3>   
+    <ul>
+        <% @candidates.each do |c| %>
+            <li><%= c.name %> : <%= c.total_average_score %> %</li>
+        <% end %>
+    </ul>    
 </div>
 
