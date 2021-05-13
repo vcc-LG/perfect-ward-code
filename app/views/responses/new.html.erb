@@ -1,6 +1,6 @@
 <div class="container">
     <h1><%= @questionnaire.title %></h1>
-
+    <hr/>
     <form accept-charset="UTF-8" action="/responses" method="post">
         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
@@ -30,8 +30,16 @@
                 </div>
             </div>
         <% end %>
-        <div class="container" style="text-align:right;">
-            <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="container">
+            <div class="row">
+                <div class="col align-self-start">
+                    <%= link_to '↩ Questionnaires', questionnaires_path %>
+                </div>
+                <div class="col align-self-end" style="text-align: right;">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>            
+            </div>
+
         </div>
     </form>
 </div>

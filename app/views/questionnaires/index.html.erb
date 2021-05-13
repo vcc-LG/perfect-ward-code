@@ -8,7 +8,7 @@
         <ul>
             <% @questionnaires.each do |q| %>
                 <li> 
-                    <%= link_to q.title, new_response_path(questionnaire_id: q.id) %>
+                    <%= link_to "#{q.title}", new_response_path(questionnaire_id: q.id) %>
                 </li>
             <% end %>
         </ul>
@@ -19,11 +19,12 @@
             <% @questionnaires.each do |q| %>
                 <li><%= q.title %></li>
                 <ul>
-                    <% @candidates.each do |c| %>
+                    <% @candidates.order(:name).each do |c| %>
                         <li>
                             <%= c.name %>: 
                             <% if q.score(c) %>
                                 <em><%= q.score(c) %> %</em>
+                                <%= link_to "➡", responses_path(questionnaire_id: q.id, candidate_id: c.id) %>
                             <% else %>
                                 <em>No response</em>
                             <% end %>

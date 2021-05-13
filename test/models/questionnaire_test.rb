@@ -5,12 +5,6 @@ class QuestionnaireTest < ActiveSupport::TestCase
     assert_equal 1, Questionnaire.count
   end
 
-  test 'candidate_response?' do
-    candidate = candidates(:leo)
-    questionnaire = questionnaires(:questionnaire_1)
-    assert_equal true, questionnaire.candidate_response?(candidate)
-  end
-
   test 'score' do
     questionnaire = questionnaires(:questionnaire_1)
 
