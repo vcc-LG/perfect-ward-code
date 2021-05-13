@@ -27,4 +27,4 @@ docker-compose run web rake test
 
 ## TODO
 
-Outstanding tasks and future developments are in [TODO.md]](TODO.md)
+Outstanding tasks and future developments are in [TODO.md](TODO.md)
